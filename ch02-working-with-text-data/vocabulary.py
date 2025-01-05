@@ -1,5 +1,6 @@
 import re
 from typing import List
+import tiktoken
 from simple_tokenizer_v1 import SimpleTokenizerV1
 from simple_tokenizer_v2 import SimpleTokenizerV2
 
@@ -38,8 +39,22 @@ def simple_tokenizer_v2():
     print(ids)
     print(tokenizer.decode(ids))
 
+def simple_tiktoken(text: str):
+    from importlib.metadata import version
+    print("tiktoken version:", version("tiktoken"))
+    tokenizer = tiktoken.get_encoding('gpt2')
+    integers = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
+    print(integers)
+    strings = tokenizer.decode(integers)
+    print(strings)
+
 if __name__ == '__main__':
     simple_tokenizer_v2()
-    from importlib.metadata import version
-    import tiktoken
-    print("tiktoken version:", version("tiktoken"))
+
+    text1 = (
+        "Hello, do you like tea? <|endoftext|> In the sunlit terraces"
+         "of someunknownPlace."
+    )
+    text2 = "Akwirw ier"
+    simple_tiktoken(text1)
+    simple_tiktoken(text2)

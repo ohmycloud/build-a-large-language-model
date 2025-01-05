@@ -40,3 +40,6 @@ def simple_tokenizer_v2():
 
 if __name__ == '__main__':
     simple_tokenizer_v2()
+    from importlib.metadata import version
+    import tiktoken
+    print("tiktoken version:", version("tiktoken"))

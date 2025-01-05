@@ -8,7 +8,12 @@ def tokenizer(text: str) -> List:
 
 with open("the-verdict.txt", "r", encoding="utf-8") as f:
     raw_text = f.read()
-    print(tokenizer(raw_text))
-
-print("Total number of character:", len(raw_text))
-print(raw_text[:99])
+    preprocessed = tokenizer(raw_text)
+    all_words = sorted(set(preprocessed))
+    vocabulary_size = len(all_words)
+    print(vocabulary_size)
+    vocab = {token:integer for integer, token in enumerate(all_words)}
+    for i, item in enumerate(vocab.items()):
+        print(item)
+        if i >= 50:
+            break

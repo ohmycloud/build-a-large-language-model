@@ -48,6 +48,30 @@ def simple_tiktoken(text: str):
     strings = tokenizer.decode(integers)
     print(strings)
 
+def sampling():
+    with open('the-verdict.txt', 'r', encoding='utf-8') as f:
+        raw_text = f.read()
+
+    tokenizer = tiktoken.get_encoding('gpt2')
+    enc_text = tokenizer.encode(raw_text)
+    print(len(enc_text))
+    enc_sample = enc_text[50:]
+    context_size = 4
+    x = enc_sample[:context_size]
+    y = enc_sample[1:context_size+1]
+    print(f"x: {x}")
+    print(f"y:      {y}")
+
+    for i in range(1, context_size+1):
+        context = enc_sample[:i]
+        desired = enc_sample[i]
+        print(context, "---->", desired)
+
+    for i in range(1, context_size+1):
+        context = enc_sample[:i]
+        desired = enc_sample[i]
+        print(tokenizer.decode(context), "---->", tokenizer.decode([desired]))
+
 if __name__ == '__main__':
     simple_tokenizer_v2()
 
@@ -58,3 +82,4 @@ if __name__ == '__main__':
     text2 = "Akwirw ier"
     simple_tiktoken(text1)
     simple_tiktoken(text2)
+    sampling()

@@ -30,3 +30,12 @@ print("上下文向量: ", context_vec_2)
 # compute all context vectors
 attn_scores = inputs @ inputs.T
 print("所有上下文向量: ", attn_scores)
+
+# normalized context vectors
+attn_weights = torch.softmax(attn_scores, dim=-1)
+print("归一化上下文向量: ", attn_weights)
+
+# verify the weighted sum
+row_2_sum = sum([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])
+print("Row 2 sum: ", row_2_sum)
+print("All row sums: ", attn_weights.sum(dim=-1))

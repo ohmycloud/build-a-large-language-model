@@ -1,5 +1,4 @@
 import torch
-from idlelib import query
 
 inputs = torch.tensor(
     [[0.43, 0.15, 0.89], # Your     (x^1)

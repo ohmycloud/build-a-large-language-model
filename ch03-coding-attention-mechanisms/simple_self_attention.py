@@ -28,8 +28,5 @@ for i, x_i in enumerate(inputs):
 print("上下文向量: ", context_vec_2)
 
 # compute all context vectors
-attn_scores = torch.empty(6, 6)
-for i, x_i in enumerate(inputs):
-    for j, x_j in enumerate(inputs):
-        attn_scores[i, j] = torch.dot(x_i, x_j)
+attn_scores = inputs @ inputs.T
 print("所有上下文向量: ", attn_scores)

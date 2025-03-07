@@ -27,7 +27,7 @@ for i, x_i in enumerate(inputs):
     context_vec_2 += x_i * attn_weights_2[i]
 print("上下文向量: ", context_vec_2)
 
-# compute all context vectors
+# compute all attention scores
 attn_scores = inputs @ inputs.T
 print("所有上下文向量: ", attn_scores)
 
@@ -39,3 +39,7 @@ print("归一化上下文向量: ", attn_weights)
 row_2_sum = sum([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])
 print("Row 2 sum: ", row_2_sum)
 print("All row sums: ", attn_weights.sum(dim=-1))
+
+# compute all context vectors
+all_context_vecs = attn_weights @ inputs
+print(all_context_vecs)

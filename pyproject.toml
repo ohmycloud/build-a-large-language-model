@@ -10,4 +10,4 @@ dependencies = [
 ]
 
 [tool.uv.workspace]
-members = ["ch02-working-with-text-data"]
+members = ["ch02-working-with-text-data", "ch03-coding-attention-mechanisms"]

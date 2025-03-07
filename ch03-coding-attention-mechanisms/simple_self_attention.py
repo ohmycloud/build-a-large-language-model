@@ -9,12 +9,13 @@ inputs = torch.tensor(
     [0.05, 0.80, 0.55]]  # step     (x^6)
 )
 
+# attention scores
 query = inputs[1]
 attn_scores_2 = torch.empty(inputs.shape[0])
 for i, x_i in enumerate(inputs):
     attn_scores_2[i] = torch.dot(x_i, query)
 
-print(attn_scores_2)
+# attention weights
 attn_weights_2 = torch.softmax(attn_scores_2, dim=0)
 print("注意力权重: ", attn_weights_2)
 print("总和: ", torch.sum(attn_weights_2))

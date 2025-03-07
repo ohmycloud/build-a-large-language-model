@@ -15,6 +15,13 @@ for i, x_i in enumerate(inputs):
     attn_scores_2[i] = torch.dot(x_i, query)
 
 print(attn_scores_2)
-attn_weights_2_tmp = torch.softmax(attn_scores_2, dim=0)
-print("注意力权重: ", attn_weights_2_tmp)
-print("总和: ", torch.sum(attn_weights_2_tmp))
+attn_weights_2 = torch.softmax(attn_scores_2, dim=0)
+print("注意力权重: ", attn_weights_2)
+print("总和: ", torch.sum(attn_weights_2))
+
+# context vector
+query = inputs[1]
+context_vec_2 = torch.zeros(query.shape)
+for i, x_i in enumerate(inputs):
+    context_vec_2 += x_i * attn_weights_2[i]
+print("上下文向量: ", context_vec_2)

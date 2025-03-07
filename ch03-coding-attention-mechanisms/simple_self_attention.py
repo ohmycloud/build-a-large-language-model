@@ -15,3 +15,6 @@ for i, x_i in enumerate(inputs):
     attn_scores_2[i] = torch.dot(x_i, query)
 
 print(attn_scores_2)
+attn_weights_2_tmp = torch.softmax(attn_scores_2, dim=0)
+print("注意力权重: ", attn_weights_2_tmp)
+print("总和: ", torch.sum(attn_weights_2_tmp))

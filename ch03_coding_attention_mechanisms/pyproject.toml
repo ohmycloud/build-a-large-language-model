@@ -1,7 +1,10 @@
 [project]
-name = "ch04-impl-gpt-from-scratch"
+name = "ch03_coding_attention_mechanisms"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "numpy>=2.2.3",
+    "torch>=2.5.1",
+]

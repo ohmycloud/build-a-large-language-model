@@ -14,7 +14,7 @@ dependencies = [
 
 [tool.uv.workspace]
 members = [
-    "ch02-working-with-text-data",
-    "ch03-coding-attention-mechanisms",
-    "ch04-impl-gpt-from-scratch",
+    "ch02_working_with_text_data",
+    "ch03_coding_attention_mechanisms",
+    "ch04_impl_gpt_from_scratch",
 ]

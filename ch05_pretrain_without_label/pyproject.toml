@@ -1,5 +1,5 @@
 [project]
-name = "ch04_impl_gpt_from_scratch"
+name = "ch05-pretrain-without-label"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"

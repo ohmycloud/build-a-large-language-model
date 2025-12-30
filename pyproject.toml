@@ -17,4 +17,5 @@ members = [
     "ch02_working_with_text_data",
     "ch03_coding_attention_mechanisms",
     "ch04_impl_gpt_from_scratch",
+    "ch05_pretrain_without_label",
 ]
